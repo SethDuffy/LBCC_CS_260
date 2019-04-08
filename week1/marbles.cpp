@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -73,6 +75,7 @@ class marble{
 
 };
 
+
 int main(void) {
     // Colors By Index
     // 0 = red
@@ -137,6 +140,33 @@ int main(void) {
 
 
         cout << "You added " << amount << " " << bag[colorIndex].getId() << " marbles!" << endl;
+        cout << "there are now " << bag[colorIndex].getAmount() << " " << bag[colorIndex].getId() << " marbles!" << endl;
+
+
+        cout << "Would you like to randomly grab a marble\n(y/n)" << endl;
+        cin >> input;
+        
+        bool marbleExists = false;
+        for(int i = 0; i < MARBLES; i++) {
+            if(bag[i].getAmount() > 0){
+                marbleExists = true;
+            }
+        }
+        
+        // grabs random marble
+        bool randomMarbleGrabbed = false;
+        while(!randomMarbleGrabbed && marbleExists && (input[0] != 'n' && input[0] != 'N')){
+            int var = rand() % 8;
+            if((bag[var].getAmount()-1) >= 0){
+                bag[var].setAmount(-1);
+                cout << "You grabbed a " << bag[var].getId() << " marble" << endl;
+                randomMarbleGrabbed = true;
+                
+            }
+        }
+
+        //testing rand
+        //cout << std::rand() << " random number" << endl;
 
         for(int i = 0; i < MARBLES; i++){
             cout << bag[i].getId() << "= " << bag[i].getAmount() << endl;
