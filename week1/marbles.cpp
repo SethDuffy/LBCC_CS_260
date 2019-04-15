@@ -74,9 +74,33 @@ class marble{
 
 
 };
+//used to test the marble
+//currently passes the couple of test I have it run.
+//remove code to see if it test correctly
+string testMarble(marble marb) {
+    string returnStr = "All tests passed";
+    int val = marb.getAmount();
+    
+    //test string
+    string str = "ab";
+    marb.setId(str);
+
+    //adds 1 to the amount
+    marb.setAmount(1);
+
+    if(!(marb.getAmount() == ++val)){
+        returnStr = "Get/Set amount error\n";
+    }
+    else if(!marb.match(str)) {
+        returnStr = "SetID/Match error";
+    }
+    return returnStr;
+}
+
 
 
 int main(void) {
+
     // Colors By Index
     // 0 = red
     // 1 = blue
@@ -96,6 +120,10 @@ int main(void) {
         bag[i].setId(colors[i]);
     }
 
+
+    for(int i = 0; i < MARBLES; i++){
+        cout << "Marble " << i << " test\n" << testMarble(bag[i]) << endl;
+    }
     bool done = false;
     //main loop
     while(!done) {
