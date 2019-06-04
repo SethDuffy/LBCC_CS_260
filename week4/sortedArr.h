@@ -8,8 +8,9 @@ class sortedArr {
         void remove(int val);
         void displayArr();
         void inList(int val);
+        void shift();
     private:
         int length;
         //only for the array section
-        int values[100];
+        int values[100] = {0};
 };
