@@ -25,7 +25,10 @@ int hash(string name) {
 
 
 int main (void) {
+    // check the hash function to see if it properly returned a key
+    // cout << "janet has a key of " << hash("janet") << endl;
     person people[TABLE_SIZE] = new person();
+
     return 0;
 }
 
