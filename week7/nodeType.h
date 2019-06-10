@@ -1,6 +1,4 @@
-#include <string>
-
 struct nodeType {
-    std::string name;
+    int value;
     nodeType* next;
 };

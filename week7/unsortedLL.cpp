@@ -7,7 +7,7 @@ unsortedLL::unsortedLL(){
     start = NULL;
 }
 //inserts new node
-void unsortedLL::insert(string name){
+void unsortedLL::insert(int val){
     nodeType* temp = new nodeType;
     temp->value = val;
     temp->next = start;
@@ -23,12 +23,12 @@ int unsortedLL::getLength() {
 void unsortedLL::displayLL() {
     nodeType* temp = start;
     while(temp != NULL){
-        std::cout << temp->name << std::endl;
+        std::cout << temp->value << std::endl;
         temp = temp->next;
     }
 }
 
-void unsortedLL::remove(string name) {
+void unsortedLL::remove(int val) {
 
     if(start != NULL){
         nodeType* temp = start;
@@ -54,21 +54,21 @@ void unsortedLL::remove(string name) {
     }
 }
 
-void unsortedLL::inList(string name) {
+bool unsortedLL::inList(int val) {
     if(start != NULL){
         nodeType* temp = start;
         if(val == start->value){
-            std::cout << val << " is in the list" << std::endl;
+            return true;
         }
         else {
             while(temp != NULL){
                 if(temp->value == val){
-                    std::cout << val << " is in the list" << std::endl;
+                    return true;
                 }
                 temp = temp->next;
             }
             if(temp == NULL) {
-                std::cout << val << " is not in the list" << std::endl;
+                return false;
             }
         }
     }

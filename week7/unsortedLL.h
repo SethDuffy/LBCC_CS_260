@@ -3,11 +3,13 @@
 class unsortedLL {
     public:
         unsortedLL();
+        void removeAll();
+        bool full() const;
         int getLength();
-        void insert(string name);
-        void remove(string name);
+        void insert(int val);
+        void remove(int val);
         void displayLL();
-        void inList(string name);
+        bool inList(int val);
     private:
         int length;
 
